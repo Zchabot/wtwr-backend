@@ -1,11 +1,51 @@
-## Descriprion
+# WTWR – Backend API
 
-Project Express a server with an API and user authorization that was designed as the backend for an application called WTWR (What To Wear). This server interacts with the WTWR fron end and stores data, such as user data, clothing item data and likes for the clothing items that are submitted by users on the front end.
+Express and MongoDB backend supporting weather-based outfit recommendations and user-managed clothing items.
 
-## Technologies and Techniques
+---
 
-Project Express was created using technologies such as Node.js, Express.js, and eslint. This project was also designed using RESTful API principals.
+## 🌍 Deployment
 
-## Link
+Backend hosted on a cloud virtual machine with MongoDB database.
 
-https://api.wtwrzc.port0.org
+---
+
+## 📸 Screenshots
+
+![Current User Info Request](./demos/auth-current-user.png)
+![Items JSON Response](./demos/items-json.png)
+
+---
+
+## 📌 Overview
+
+This API manages user accounts and clothing items for the WTWR application. Provides CRUD endpoints and secure authentication.
+
+---
+
+## 🛠 Tech Stack
+
+- Node.js
+- Express
+- MongoDB
+- JWT Authentication
+
+---
+
+## ✨ Key Features
+
+- User authentication with JWT
+- CRUD operations for clothing items
+- Protected routes
+- MongoDB schemas
+- Request validation and centralized error handling
+
+---
+
+## ⚙️ Installation
+
+```bash
+git clone https://github.com/Zchabot/wtwr-backend.git
+npm install
+npm start
+```
