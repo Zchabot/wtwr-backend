@@ -4,6 +4,7 @@ const ClothingItem = require("../models/clothingItem");
 
 const { BAD_REQUEST_MESSAGE, NOT_FOUND_MESSAGE } = require("../utils/errors");
 
+// Store ownership on create so future actions (delete/like) can be authorized per-user
 const createItem = (req, res, next) => {
   const ownerId = req.user._id;
   const { name, weather, imageUrl } = req.body;
@@ -31,6 +32,7 @@ const getItems = (req, res, next) => {
     .catch((err) => next(err));
 };
 
+// NOTE: Best practice is to verify item.owner === req.user._id before deleting
 const deleteItem = (req, res, next) => {
   const { itemId } = req.params;
   ClothingItem.findByIdAndDelete(itemId)

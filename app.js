@@ -1,3 +1,9 @@
+/**
+ * WTWR backend:
+ * - Express + MongoDB API for users + clothing items
+ * - JWT auth protects user-specific actions (likes, deletes, profile updates)
+ * - Centralized error handling keeps client responses consistent
+ */
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -24,9 +30,13 @@ app.use(cors());
 app.use(express.json());
 app.use(requestLogger);
 app.use(helmet());
+
+// Mount main router (handles both public auth routes and protected API routes)
 app.use("/", mainRouter);
 app.use(errorLogger);
 app.use(errors());
+
+// Final error middleware (keeps server errors from leaking to the client)
 app.use(errorHandler);
 
 app.listen(PORT, () => {
